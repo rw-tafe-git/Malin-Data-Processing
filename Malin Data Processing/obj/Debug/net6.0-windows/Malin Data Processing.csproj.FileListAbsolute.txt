@@ -1,0 +1,21 @@
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.csproj.AssemblyReference.cache
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\DataProcessing.g.cs
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing_MarkupCompile.cache
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing_MarkupCompile.lref
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\bin\Debug\net6.0-windows\Malin Data Processing.exe
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\bin\Debug\net6.0-windows\Malin Data Processing.deps.json
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\bin\Debug\net6.0-windows\Malin Data Processing.runtimeconfig.json
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\bin\Debug\net6.0-windows\Malin Data Processing.dll
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\bin\Debug\net6.0-windows\Malin Data Processing.pdb
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\DataProcessing.baml
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.g.resources
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.AssemblyInfoInputs.cache
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.AssemblyInfo.cs
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.dll
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\refint\Malin Data Processing.dll
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.pdb
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\Malin Data Processing.genruntimeconfig.cache
+C:\Users\Administrator\Source\Repos\Malin Data Processing\Malin Data Processing\obj\Debug\net6.0-windows\ref\Malin Data Processing.dll
