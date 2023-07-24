@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lSKFlyaxcILDnBs0ipYC2d1pJYg4dRalP6G2dx7crZ6xDmgNyWc9Xr8keFIxn26L1tFq9D4ZykH67wP5oVb4lA==",
+  "dgSpecHash": "A3/zq8RmU4YaZdm+Sy/UahaGU90O8t6ffnOVenqIpsXDYq4fRzHMsJhHmy2DkcUfYV/+cTlhODhZJR1XVL3oJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\Source\\Repos\\Malin-Data-Processing\\Malin Data Processing\\Malin Data Processing.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

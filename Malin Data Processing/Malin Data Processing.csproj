@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Arithmetic">
       <HintPath>..\Arithmetic.dll</HintPath>
     </Reference>

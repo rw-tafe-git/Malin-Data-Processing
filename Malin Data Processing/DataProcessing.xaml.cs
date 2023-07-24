@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -149,16 +150,25 @@ namespace Malin_Data_Processing
         }
 
         // 4.13	Add two numeric input controls for Sigma and Mu. The value for Sigma must be limited with a minimum of 10 and a maximum of 20. Set the default value to 10. The value for Mu must be limited with a minimum of 35 and a maximum of 75. Set the default value to 50.
-        private void PopulateComboBox(string filePath, ComboBox comboBox)
+        private void FillComboBox(ComboBox Cmb, int min, int max, int deflt)
         {
-            string[] dataString = System.IO.File.ReadAllLines(filePath);
+            for (int i = 0; i <= max; i++)
+                Cmb.Items.Add(i);
 
-            for(int i = 0; i < dataString.Length; i++)
-            {
-                comboBox.Items.Add(dataString[i]);
-            }
+            Cmb.SelectedItem = deflt;
         }
 
+
         // 4.14	Add two textboxes for the search value; one for each sensor, ensure only numeric integer values can be entered.
+        private void TextBoxSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            FillComboBox(Sigma, 10, 20, 10);
+            FillComboBox(Mu, 35, 75, 50);
+        }
     }
 }
