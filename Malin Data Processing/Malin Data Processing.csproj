@@ -8,4 +8,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Arithmetic">
+      <HintPath>..\Arithmetic.dll</HintPath>
+    </Reference>
+    <Reference Include="Galileo">
+      <HintPath>..\Galileo.dll</HintPath>
+    </Reference>
+    <Reference Include="Galileo6">
+      <HintPath>..\Galileo6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

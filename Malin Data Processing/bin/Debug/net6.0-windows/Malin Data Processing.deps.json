@@ -7,8 +7,28 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Malin Data Processing/1.0.0": {
+        "dependencies": {
+          "Galileo": "1.0.0.0",
+          "Galileo6": "1.0.0.0"
+        },
         "runtime": {
           "Malin Data Processing.dll": {}
+        }
+      },
+      "Galileo/1.0.0.0": {
+        "runtime": {
+          "Galileo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Galileo6/1.0.0.0": {
+        "runtime": {
+          "Galileo6.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -16,6 +36,16 @@
   "libraries": {
     "Malin Data Processing/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Galileo/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Galileo6/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
