@@ -15,7 +15,7 @@
         <Button x:Name="ButtonASearchIterative" Content="Search Iterative" HorizontalAlignment="Left" Height="24" Margin="186,87,0,0" VerticalAlignment="Top" Width="115" Click="ButtonASearchIterative_Click"/>
         <TextBox x:Name="TextBoxASearch" HorizontalAlignment="Left" Height="24" Margin="267,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" PreviewTextInput="TextBoxSearch_PreviewTextInput"/>
         <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="386,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="368" Width="99"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,114,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="295" Width="155">
+        <ListView x:Name="RawData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,114,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="295" Width="155">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Sesnor A" Width="80" DisplayMemberBinding="{Binding SensorA}"/>

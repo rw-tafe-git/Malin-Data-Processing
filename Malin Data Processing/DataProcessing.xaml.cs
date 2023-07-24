@@ -48,15 +48,13 @@ namespace Malin_Data_Processing
         }*/
 
         // 4.3	Create a custom method called “ShowAllSensorData” which will display both LinkedLists in a ListView. Add column titles “Sensor A” and “Sensor B” to the ListView. The input parameters are 
-        /*private void ShowAllSensorData()
+        private void ShowAllSensorData()
         {
             RawData.Items.Clear();
             int max = NumberOfNodes(SensorAList);
-            for(int i = 0; i < max; i++)
-            {
-                RawData.Items.Add(new { sensorA = SensorAList.ElementAt(i).ToString(), sensorB = SensorAList.ElementAt(i).ToString() })
-            }
-        }*/
+            for (int i = 0; i < max; i++)
+                RawData.Items.Add(new { sensorA = SensorAList.ElementAt(i).ToString(), sensorB = SensorBList.ElementAt(i).ToString() });
+        }
 
         // 4.4	Create a button and associated click method that will call the LoadData and ShowAllSensorData methods. The input parameters are empty, and the return type is void.
 
