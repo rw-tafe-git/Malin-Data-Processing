@@ -79,7 +79,11 @@ namespace Malin_Data_Processing
         // 4.6	Create a method called “DisplayListboxData” that will display the content of a LinkedList inside the appropriate ListBox. The method signature will have two input parameters; a LinkedList, and the ListBox name.  The calling code argument is the linkedlist name and the listbox name.
         private void DisplayListBoxData(LinkedList<double> linkedList, ListBox listBox)
         {
-            listBox.Items.Add(linkedList);
+            listBox.Items.Clear();
+            foreach(double data in linkedList)
+            {
+                listBox.Items.Add(data);
+            }
         }
 
         // 4.7	Create a method called “SelectionSort” which has a single input parameter of type LinkedList, while the calling code argument is the linkedlist name. The method code must follow the pseudo code supplied below in the Appendix. The return type is Boolean.
@@ -92,9 +96,9 @@ namespace Malin_Data_Processing
         }
 
         // 4.8	Create a method called “InsertionSort” which has a single parameter of type LinkedList, while the calling code argument is the linkedlist name. The method code must follow the pseudo code supplied below in the Appendix. The return type is Boolean.
-        private void InsertionSort(LinkedList<double> linkedList)
+        private bool InsertionSort(LinkedList<double> linkedList)
         {
-
+            return false;
         }
 
         // 4.9	Create a method called “BinarySearchIterative” which has the following four parameters: LinkedList, SearchValue, Minimum and Maximum. This method will return an integer of the linkedlist element from a successful search or the nearest neighbour value. The calling code argument is the linkedlist name, search value, minimum list size and the number of nodes in the list. The method code must follow the pseudo code supplied below in the Appendix.
@@ -152,7 +156,7 @@ namespace Malin_Data_Processing
 
         private void HighlightListBox(int found, ListBox listBox)
         {
-
+            listBox.SelectedIndex = found;
         }
 
         // 4.11	Create four button click methods that will search the LinkedList for an integer value entered into a textbox on the form. The four methods are:
@@ -162,14 +166,23 @@ namespace Malin_Data_Processing
         // 4.	Method for Sensor B and Binary Search Recursive
         private void ButtonASearchIterative_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SearchNumberOn(TextBoxASearch, SensorAList))
+            {
+                var stopwatch = Stopwatch.StartNew();
+                int found = BinarySearchIterative(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
+                stopwatch.Stop();
+                TimeIterativeA.Content = stopwatch.ElapsedTicks.ToString() + " Ticks";
+                DisplayListBoxData(SensorAList, ListBoxA);
+                TextBoxASearch.Clear();
+                HighlightListBox(found, ListBoxA);
+            }
         }
         private void ButtonASearchRecursive_Click(object sender, RoutedEventArgs e)
         {
             if (SearchNumberOn(TextBoxASearch, SensorAList))
             {
                 var stopwatch = Stopwatch.StartNew();
-                int found = BinarySearchIterative(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
+                int found = BinarySearchRecursive(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
                 stopwatch.Stop();
                 TimeRecursiveA.Content = stopwatch.ElapsedTicks.ToString() + " Ticks";
                 DisplayListBoxData(SensorAList, ListBoxA);
@@ -180,7 +193,16 @@ namespace Malin_Data_Processing
 
         private void ButtonBSearchIterative_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SearchNumberOn(TextBoxBSearch, SensorBList))
+            {
+                var stopwatch = Stopwatch.StartNew();
+                int found = BinarySearchIterative(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
+                stopwatch.Stop();
+                TimeIterativeB.Content = stopwatch.ElapsedTicks.ToString() + " Ticks";
+                DisplayListBoxData(SensorBList, ListBoxB);
+                TextBoxBSearch.Clear();
+                HighlightListBox(found, ListBoxB);
+            }
         }
 
         private void ButtonBSearchRecursive_Click(object sender, RoutedEventArgs e)
@@ -188,7 +210,7 @@ namespace Malin_Data_Processing
             if (SearchNumberOn(TextBoxBSearch, SensorBList))
             {
                 var stopwatch = Stopwatch.StartNew();
-                int found = BinarySearchIterative(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
+                int found = BinarySearchRecursive(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
                 stopwatch.Stop();
                 TimeRecursiveB.Content = stopwatch.ElapsedTicks.ToString() + " Ticks";
                 DisplayListBoxData(SensorBList, ListBoxB);
@@ -204,20 +226,36 @@ namespace Malin_Data_Processing
         // 4.	Method for Sensor B and Insertion Sort
         private void ButtonASortSelection_Click(object sender, RoutedEventArgs e)
         {
-
+            var stopwatch = Stopwatch.StartNew();
+            SelectionSort(SensorAList);
+            stopwatch.Stop();
+            TimeSelectionA.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
+            DisplayListBoxData(SensorAList, ListBoxA);
         }
         private void ButtonASortInsertion_Click(object sender, RoutedEventArgs e)
         {
-
+            var stopwatch = Stopwatch.StartNew();
+            InsertionSort(SensorAList);
+            stopwatch.Stop();
+            TimeInsertionA.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
+            DisplayListBoxData(SensorAList, ListBoxA);
         }
 
         private void ButtonBSortSelection_Click(object sender, RoutedEventArgs e)
         {
-
+            var stopwatch = Stopwatch.StartNew();
+            SelectionSort(SensorBList);
+            stopwatch.Stop();
+            TimeSelectionB.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
+            DisplayListBoxData(SensorBList, ListBoxB);
         }
         private void ButtonBSortInsertion_Click(object sender, RoutedEventArgs e)
         {
-
+            var stopwatch = Stopwatch.StartNew();
+            InsertionSort(SensorBList);
+            stopwatch.Stop();
+            TimeInsertionB.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
+            DisplayListBoxData(SensorBList, ListBoxB);
         }
 
         // 4.13	Add two numeric input controls for Sigma and Mu. The value for Sigma must be limited with a minimum of 10 and a maximum of 20. Set the default value to 10. The value for Mu must be limited with a minimum of 35 and a maximum of 75. Set the default value to 50.

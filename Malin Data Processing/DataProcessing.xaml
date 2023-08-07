@@ -18,8 +18,8 @@
         <ListView x:Name="RawData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,114,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="295" Width="155">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Sesnor A" Width="80" DisplayMemberBinding="{Binding SensorA}"/>
-                    <GridViewColumn Header="Sesnor B" Width="80" DisplayMemberBinding="{Binding SensorB}"/>
+                    <GridViewColumn Header="Sesnor A" Width="70" DisplayMemberBinding="{Binding SensorA}"/>
+                    <GridViewColumn Header="Sesnor B" Width="70" DisplayMemberBinding="{Binding SensorB}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -28,9 +28,9 @@
         <Button x:Name="ButtonASearchRecursive" Content="Search Recursive" HorizontalAlignment="Left" Height="24" Margin="186,133,0,0" VerticalAlignment="Top" Width="115" Click="ButtonASearchRecursive_Click"/>
         <Label x:Name="TimeRecursiveA" Content="Ticks" HorizontalAlignment="Left" Height="28" Margin="306,131,0,0" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="ButtonASortSelection" Content="Sort Selection" HorizontalAlignment="Left" Height="24" Margin="186,177,0,0" VerticalAlignment="Top" Width="115" Click="ButtonASortSelection_Click"/>
-        <Label x:Name="TimeSelectionA" Content="Millisecs" HorizontalAlignment="Left" Height="28" Margin="306,175,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="TimeSelectionA" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="306,175,0,0" VerticalAlignment="Top" Width="80"/>
         <Button x:Name="ButtonASortInsertion" Content="Sort Insertion" HorizontalAlignment="Left" Height="24" Margin="186,219,0,0" VerticalAlignment="Top" Width="115" Click="ButtonASortInsertion_Click"/>
-        <Label x:Name="TimeInsertionA" Content="Millisecs" HorizontalAlignment="Left" Height="28" Margin="306,217,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="TimeInsertionA" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="306,217,0,0" VerticalAlignment="Top" Width="80"/>
         <Label Content="Sensor A" HorizontalAlignment="Left" Height="25" Margin="224,1,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" FontSize="14"/>
         <Label Content="Sensor B" HorizontalAlignment="Left" Height="25" Margin="550,0,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="ButtonBSearchIterative" Content="Search Iterative" HorizontalAlignment="Left" Height="24" Margin="492,89,0,0" VerticalAlignment="Top" Width="115" Click="ButtonBSearchIterative_Click"/>
@@ -40,9 +40,9 @@
         <Button x:Name="ButtonBSearchRecursive" Content="Search Recursive" HorizontalAlignment="Left" Height="24" Margin="492,135,0,0" VerticalAlignment="Top" Width="115" Click="ButtonBSearchRecursive_Click"/>
         <Label x:Name="TimeRecursiveB" Content="Ticks" HorizontalAlignment="Left" Height="28" Margin="612,133,0,0" VerticalAlignment="Top" Width="77"/>
         <Button x:Name="ButtonBSortSelection" Content="Sort Selection" HorizontalAlignment="Left" Height="24" Margin="492,179,0,0" VerticalAlignment="Top" Width="115" Click="ButtonBSortSelection_Click"/>
-        <Label x:Name="TimeSelectionB" Content="Millisecs" HorizontalAlignment="Left" Height="28" Margin="612,177,0,0" VerticalAlignment="Top" Width="77"/>
+        <Label x:Name="TimeSelectionB" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="612,177,0,0" VerticalAlignment="Top" Width="77"/>
         <Button x:Name="ButtonBSortInsertion" Content="Sort Insertion" HorizontalAlignment="Left" Height="24" Margin="492,221,0,0" VerticalAlignment="Top" Width="115" Click="ButtonBSortInsertion_Click"/>
-        <Label x:Name="TimeInsertionB" Content="Millisecs" HorizontalAlignment="Left" Height="28" Margin="612,219,0,0" VerticalAlignment="Top" Width="77"/>
+        <Label x:Name="TimeInsertionB" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="612,219,0,0" VerticalAlignment="Top" Width="77"/>
         <ListBox x:Name="ListBoxB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="694,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="365" Width="96"/>
 
     </Grid>
