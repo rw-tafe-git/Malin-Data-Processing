@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Galileo6;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Malin_Data_Processing
 {
@@ -92,13 +93,47 @@ namespace Malin_Data_Processing
             int min = 0;
             int max = NumberOfNodes(linkedList);
 
-            return false;
+            for (int i = 0; i < max - 1; i++)
+            {
+                min = i;
+                for (int j = i + 1; j < max - 1; j++)
+                {
+                    if (linkedList.ElementAt(j) < linkedList.ElementAt(min))
+                        min = j;
+
+                    // Supplied C# code
+                    LinkedListNode<double> currentMin = linkedList.Find(linkedList.ElementAt(min));
+                    LinkedListNode<double> currentI = linkedList.Find(linkedList.ElementAt(i));
+                    // End of supplied C# code
+                    var temp = currentMin.Value;
+                    currentMin.Value = currentI.Value;
+                    currentI.Value = temp;
+                }
+            }
+
+            return true;
         }
 
         // 4.8	Create a method called “InsertionSort” which has a single parameter of type LinkedList, while the calling code argument is the linkedlist name. The method code must follow the pseudo code supplied below in the Appendix. The return type is Boolean.
         private bool InsertionSort(LinkedList<double> linkedList)
         {
-            return false;
+            int max = NumberOfNodes(linkedList);
+            for (int i = 0; i < max - 1; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (linkedList.ElementAt(j - 1) > linkedList.ElementAt(j))
+                    {
+                        // Supplied C# code
+                        LinkedListNode<double> current = linkedList.Find(linkedList.ElementAt(j));
+                        // End of supplied C# code
+                        // Add Swap code here by swapping
+                        // previous value with current value.
+                        linkedList.Find(linkedList.ElementAt(j - 1)).Value = current.Value;
+                    }
+                }
+            }
+            return true;
         }
 
         // 4.9	Create a method called “BinarySearchIterative” which has the following four parameters: LinkedList, SearchValue, Minimum and Maximum. This method will return an integer of the linkedlist element from a successful search or the nearest neighbour value. The calling code argument is the linkedlist name, search value, minimum list size and the number of nodes in the list. The method code must follow the pseudo code supplied below in the Appendix.
@@ -109,17 +144,11 @@ namespace Malin_Data_Processing
                 int mid = (min + max) / 2;
 
                 if (key == linkedList.ElementAt(mid))
-                {
                     return ++mid;
-                }
                 else if (key < linkedList.ElementAt(mid))
-                {
                     max = mid - 1;
-                }
                 else
-                {
                     min = mid + 1;
-                }
             }
             return min;
         }
@@ -132,17 +161,11 @@ namespace Malin_Data_Processing
                 int mid = (min + max) / 2;
 
                 if (key == linkedList.ElementAt(mid))
-                {
                     return mid;
-                }
                 else if (key < linkedList.ElementAt(mid))
-                {
                     return BinarySearchRecursive(linkedList, key, min, mid - 1);
-                }
                 else
-                {
                     return BinarySearchRecursive(linkedList, key, mid + 1, max);
-                }
             }
             return min;
         }

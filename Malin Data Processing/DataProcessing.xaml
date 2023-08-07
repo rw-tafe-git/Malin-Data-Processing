@@ -14,7 +14,7 @@
         <Button x:Name="ButtonLoadSensorData" Content="Load Sensor Data" HorizontalAlignment="Left" Height="25" Margin="10,76,0,0" VerticalAlignment="Top" Width="155" Click="ButtonLoadSensorData_Click"/>
         <Button x:Name="ButtonASearchIterative" Content="Search Iterative" HorizontalAlignment="Left" Height="24" Margin="186,87,0,0" VerticalAlignment="Top" Width="115" Click="ButtonASearchIterative_Click"/>
         <TextBox x:Name="TextBoxASearch" HorizontalAlignment="Left" Height="24" Margin="267,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" PreviewTextInput="TextBoxSearch_PreviewTextInput"/>
-        <ListBox x:Name="ListBoxA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="386,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="368" Width="99"/>
+        <ListBox x:Name="ListBoxA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="386,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="368" Width="99" SelectionMode="Multiple"/>
         <ListView x:Name="RawData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,114,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="295" Width="155">
             <ListView.View>
                 <GridView>
@@ -43,7 +43,7 @@
         <Label x:Name="TimeSelectionB" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="612,177,0,0" VerticalAlignment="Top" Width="77"/>
         <Button x:Name="ButtonBSortInsertion" Content="Sort Insertion" HorizontalAlignment="Left" Height="24" Margin="492,221,0,0" VerticalAlignment="Top" Width="115" Click="ButtonBSortInsertion_Click"/>
         <Label x:Name="TimeInsertionB" Content="millisecs" HorizontalAlignment="Left" Height="28" Margin="612,219,0,0" VerticalAlignment="Top" Width="77"/>
-        <ListBox x:Name="ListBoxB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="694,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="365" Width="96"/>
+        <ListBox x:Name="ListBoxB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="694,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="365" Width="96" SelectionMode="Multiple"/>
 
     </Grid>
 </Window>
