@@ -129,7 +129,9 @@ namespace Malin_Data_Processing
                         // End of supplied C# code
                         // Add Swap code here by swapping
                         // previous value with current value.
-                        linkedList.Find(linkedList.ElementAt(j - 1)).Value = current.Value;
+                        var temp = current.Value;
+                        current.Value = linkedList.Find(linkedList.ElementAt(j - 1)).Value;
+                        linkedList.Find(linkedList.ElementAt(j - 1)).Value = temp;
                     }
                 }
             }
