@@ -96,19 +96,19 @@ namespace Malin_Data_Processing
             for (int i = 0; i < max - 1; i++)
             {
                 min = i;
-                for (int j = i + 1; j < max - 1; j++)
+                for (int j = i + 1; j < max; j++)
                 {
                     if (linkedList.ElementAt(j) < linkedList.ElementAt(min))
                         min = j;
-
-                    // Supplied C# code
-                    LinkedListNode<double> currentMin = linkedList.Find(linkedList.ElementAt(min));
-                    LinkedListNode<double> currentI = linkedList.Find(linkedList.ElementAt(i));
-                    // End of supplied C# code
-                    var temp = currentMin.Value;
-                    currentMin.Value = currentI.Value;
-                    currentI.Value = temp;
                 }
+
+                // Supplied C# code
+                LinkedListNode<double> currentMin = linkedList.Find(linkedList.ElementAt(min));
+                LinkedListNode<double> currentI = linkedList.Find(linkedList.ElementAt(i));
+                // End of supplied C# code
+                var temp = currentMin.Value;
+                currentMin.Value = currentI.Value;
+                currentI.Value = temp;
             }
 
             return true;
@@ -129,9 +129,9 @@ namespace Malin_Data_Processing
                         // End of supplied C# code
                         // Add Swap code here by swapping
                         // previous value with current value.
-                        var temp = current.Value;
-                        current.Value = linkedList.Find(linkedList.ElementAt(j - 1)).Value;
-                        linkedList.Find(linkedList.ElementAt(j - 1)).Value = temp;
+                        var temp = current.Previous.Value;
+                        current.Previous.Value = current.Value;
+                        current.Value = temp;
                     }
                 }
             }
