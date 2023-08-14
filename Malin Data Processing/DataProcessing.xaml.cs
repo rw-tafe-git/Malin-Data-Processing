@@ -17,8 +17,12 @@ using System.Windows.Shapes;
 using Galileo6;
 using System.Reflection.Metadata.Ecma335;
 
+
 namespace Malin_Data_Processing
 {
+    // Student Riley, id 30002737, Date: 12/02/2023
+    // Assessment Task 1
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
