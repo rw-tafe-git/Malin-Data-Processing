@@ -1,22 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Galileo6;
-using System.Reflection.Metadata.Ecma335;
-using System.Globalization;
 
 
 namespace Malin_Data_Processing
@@ -189,7 +179,7 @@ namespace Malin_Data_Processing
         #region UI Button Methods
         private bool SearchNumberOK(TextBox textBox, LinkedList<double> linkedList)
         {
-            if (!string.IsNullOrEmpty(textBox.Text))
+            if (!string.IsNullOrEmpty(textBox.Text) && linkedList.Count > 0)
             {
                 int searchValue = int.Parse(textBox.Text);
                 if (searchValue > MinValue(linkedList) && searchValue < MaxValue(linkedList))
