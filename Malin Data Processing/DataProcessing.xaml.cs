@@ -180,8 +180,6 @@ namespace Malin_Data_Processing
         #region UI Button Methods
         private bool SearchNumberOK(TextBox textBox, LinkedList<double> linkedList)
         {
-           // return !string.IsNullOrEmpty(textBox.Text);
-
             if(!string.IsNullOrEmpty(textBox.Text))
             {
                 int searchValue = int.Parse(textBox.Text);
