@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Galileo6;
 using System.Reflection.Metadata.Ecma335;
+using System.Globalization;
 
 
 namespace Malin_Data_Processing
@@ -32,6 +33,9 @@ namespace Malin_Data_Processing
         // 4.1	Create two data structures using the LinkedList<T> class from the C# Systems.Collections.Generic namespace. The data must be of type “double”; you are not permitted to use any additional classes, nodes, pointers or data structures (array, list, etc) in the implementation of this application. The two LinkedLists of type double are to be declared as global within the “public partial class”.   
         private LinkedList<double> SensorAList = new LinkedList<double>();
         private LinkedList<double> SensorBList = new LinkedList<double>();
+
+        private bool sortedA;
+        private bool sortedB;
 
         public DataProcessing()
         {
@@ -69,8 +73,14 @@ namespace Malin_Data_Processing
         // 4.4	Create a button and associated click method that will call the LoadData and ShowAllSensorData methods. The input parameters are empty, and the return type is void.
         private void ButtonLoadSensorData_Click(object sender, RoutedEventArgs e)
         {
+            ListBoxA.Items.Clear();
+            ListBoxB.Items.Clear();
+
             LoadData();
             ShowAllSensorData();
+
+            sortedA = false;
+            sortedB = false;
         }
         #endregion
 
@@ -85,10 +95,8 @@ namespace Malin_Data_Processing
         private void DisplayListBoxData(LinkedList<double> linkedList, ListBox listBox)
         {
             listBox.Items.Clear();
-            foreach(double data in linkedList)
-            {
+            foreach (double data in linkedList)
                 listBox.Items.Add(data);
-            }
         }
 
         // 4.7	Create a method called “SelectionSort” which has a single input parameter of type LinkedList, while the calling code argument is the linkedlist name. The method code must follow the pseudo code supplied below in the Appendix. The return type is Boolean.
@@ -139,6 +147,7 @@ namespace Malin_Data_Processing
                     }
                 }
             }
+
             return true;
         }
 
@@ -180,10 +189,10 @@ namespace Malin_Data_Processing
         #region UI Button Methods
         private bool SearchNumberOK(TextBox textBox, LinkedList<double> linkedList)
         {
-            if(!string.IsNullOrEmpty(textBox.Text))
+            if (!string.IsNullOrEmpty(textBox.Text))
             {
                 int searchValue = int.Parse(textBox.Text);
-                if(searchValue > MinValue(linkedList) && searchValue < MaxValue(linkedList))
+                if (searchValue > MinValue(linkedList) && searchValue < MaxValue(linkedList))
                     return true;
                 else
                 {
@@ -206,9 +215,9 @@ namespace Malin_Data_Processing
 
         private void HighlightListBox(int found, ListBox listBox)
         {
-            if(found >= 0 && found <= 2)
+            if (found >= 0 && found <= 2)
             {
-                for(int x = 0; x <= 3; x++)
+                for (int x = 0; x <= 3; x++)
                     listBox.SelectedItems.Add(listBox.Items.GetItemAt(x));
             }
             else if (found >= 397 && found <= 399)
@@ -231,7 +240,7 @@ namespace Malin_Data_Processing
         // 4.	Method for Sensor B and Binary Search Recursive
         private void ButtonASearchIterative_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOK(TextBoxASearch, SensorAList) && (SelectionSort(SensorAList) || InsertionSort(SensorAList)))
+            if (SearchNumberOK(TextBoxASearch, SensorAList) && sortedA)
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchIterative(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
@@ -244,7 +253,7 @@ namespace Malin_Data_Processing
         }
         private void ButtonASearchRecursive_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOK(TextBoxASearch, SensorAList) && (SelectionSort(SensorAList) || InsertionSort(SensorAList)))
+            if (SearchNumberOK(TextBoxASearch, SensorAList) && sortedA)
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchRecursive(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
@@ -258,7 +267,7 @@ namespace Malin_Data_Processing
 
         private void ButtonBSearchIterative_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOK(TextBoxBSearch, SensorBList) && (SelectionSort(SensorBList) || InsertionSort(SensorBList)))
+            if (SearchNumberOK(TextBoxBSearch, SensorBList) && sortedB)
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchIterative(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
@@ -272,7 +281,7 @@ namespace Malin_Data_Processing
 
         private void ButtonBSearchRecursive_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOK(TextBoxBSearch, SensorBList) && (SelectionSort(SensorBList) || InsertionSort(SensorBList)))
+            if (SearchNumberOK(TextBoxBSearch, SensorBList) && sortedB)
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchRecursive(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
@@ -292,7 +301,7 @@ namespace Malin_Data_Processing
         private void ButtonASortSelection_Click(object sender, RoutedEventArgs e)
         {
             var stopwatch = Stopwatch.StartNew();
-            SelectionSort(SensorAList);
+            sortedA = SelectionSort(SensorAList);
             stopwatch.Stop();
             TimeSelectionA.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
             DisplayListBoxData(SensorAList, ListBoxA);
@@ -300,7 +309,7 @@ namespace Malin_Data_Processing
         private void ButtonASortInsertion_Click(object sender, RoutedEventArgs e)
         {
             var stopwatch = Stopwatch.StartNew();
-            InsertionSort(SensorAList);
+            sortedA = InsertionSort(SensorAList);
             stopwatch.Stop();
             TimeInsertionA.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
             DisplayListBoxData(SensorAList, ListBoxA);
@@ -309,7 +318,7 @@ namespace Malin_Data_Processing
         private void ButtonBSortSelection_Click(object sender, RoutedEventArgs e)
         {
             var stopwatch = Stopwatch.StartNew();
-            SelectionSort(SensorBList);
+            sortedB = SelectionSort(SensorBList);
             stopwatch.Stop();
             TimeSelectionB.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
             DisplayListBoxData(SensorBList, ListBoxB);
@@ -317,7 +326,7 @@ namespace Malin_Data_Processing
         private void ButtonBSortInsertion_Click(object sender, RoutedEventArgs e)
         {
             var stopwatch = Stopwatch.StartNew();
-            InsertionSort(SensorBList);
+            sortedB = InsertionSort(SensorBList);
             stopwatch.Stop();
             TimeInsertionB.Content = stopwatch.ElapsedMilliseconds.ToString() + " millisecs";
             DisplayListBoxData(SensorBList, ListBoxB);
