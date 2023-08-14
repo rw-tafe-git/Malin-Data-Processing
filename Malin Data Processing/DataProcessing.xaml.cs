@@ -178,14 +178,52 @@ namespace Malin_Data_Processing
         #endregion
 
         #region UI Button Methods
-        private bool SearchNumberOn(TextBox textBox, LinkedList<double> linkedList)
+        private bool SearchNumberOK(TextBox textBox, LinkedList<double> linkedList)
         {
-            return !string.IsNullOrEmpty(textBox.Text);
+           // return !string.IsNullOrEmpty(textBox.Text);
+
+            if(!string.IsNullOrEmpty(textBox.Text))
+            {
+                int searchValue = int.Parse(textBox.Text);
+                if(searchValue > MinValue(linkedList) && searchValue < MaxValue(linkedList))
+                    return true;
+                else
+                {
+                    textBox.Clear();
+                    return false;
+                }
+            }
+            else
+                return false;
+        }
+
+        private int MinValue(LinkedList<double> linkedList)
+        {
+            return (int)Math.Floor(linkedList.ElementAt(0));
+        }
+        private int MaxValue(LinkedList<double> linkedList)
+        {
+            return (int)Math.Ceiling(linkedList.ElementAt(399));
         }
 
         private void HighlightListBox(int found, ListBox listBox)
         {
-            listBox.SelectedIndex = found;
+            if(found >= 0 && found <= 2)
+            {
+                for(int x = 0; x <= 3; x++)
+                    listBox.SelectedItems.Add(listBox.Items.GetItemAt(x));
+            }
+            else if (found >= 397 && found <= 399)
+            {
+                for (int x = 397; x <= 399; x++)
+                    listBox.SelectedItems.Add(listBox.Items.GetItemAt(x));
+            }
+            else
+            {
+                for (int x = found - 2; x <= found + 2; x++)
+                    listBox.SelectedItems.Add(listBox.Items.GetItemAt(x));
+            }
+            //listBox.SelectedItems.Add(listBox.Items.GetItemAt(found));
         }
 
         // 4.11	Create four button click methods that will search the LinkedList for an integer value entered into a textbox on the form. The four methods are:
@@ -195,7 +233,7 @@ namespace Malin_Data_Processing
         // 4.	Method for Sensor B and Binary Search Recursive
         private void ButtonASearchIterative_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOn(TextBoxASearch, SensorAList))
+            if (SearchNumberOK(TextBoxASearch, SensorAList) && (SelectionSort(SensorAList) || InsertionSort(SensorAList)))
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchIterative(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
@@ -208,7 +246,7 @@ namespace Malin_Data_Processing
         }
         private void ButtonASearchRecursive_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOn(TextBoxASearch, SensorAList))
+            if (SearchNumberOK(TextBoxASearch, SensorAList) && (SelectionSort(SensorAList) || InsertionSort(SensorAList)))
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchRecursive(SensorAList, int.Parse(TextBoxASearch.Text), 0, NumberOfNodes(SensorAList));
@@ -222,7 +260,7 @@ namespace Malin_Data_Processing
 
         private void ButtonBSearchIterative_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOn(TextBoxBSearch, SensorBList))
+            if (SearchNumberOK(TextBoxBSearch, SensorBList) && (SelectionSort(SensorBList) || InsertionSort(SensorBList)))
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchIterative(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
@@ -236,7 +274,7 @@ namespace Malin_Data_Processing
 
         private void ButtonBSearchRecursive_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchNumberOn(TextBoxBSearch, SensorBList))
+            if (SearchNumberOK(TextBoxBSearch, SensorBList) && (SelectionSort(SensorBList) || InsertionSort(SensorBList)))
             {
                 var stopwatch = Stopwatch.StartNew();
                 int found = BinarySearchRecursive(SensorBList, int.Parse(TextBoxBSearch.Text), 0, NumberOfNodes(SensorBList));
